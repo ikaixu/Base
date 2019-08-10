@@ -36,8 +36,13 @@ public class FixedCapacityStack<Item> implements Iterable<Item> {
 	 *  Iterator对象是实现了Iterator接口的类
 	 */
     private class ReverseArrayIterator implements Iterator<Item> {
-        private int i = N-1;
+        private int i;  // i是记录栈中栈顶元素在数组的索引值，该值的会比栈中元素个数小1
 
+        // 添加构造函数
+        public ReverseArrayIterator() {
+        	i = N -1;
+        }
+        
         public boolean hasNext() {
             return i >= 0;
         }
