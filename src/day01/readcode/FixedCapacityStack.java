@@ -13,7 +13,7 @@ public class FixedCapacityStack<Item> implements Iterable<Item> {
     private Item[] a;    // 使用泛型去表示该数组所存元素的种类
     private int N;       // 栈的元素个数
 
-    // 创建给定容量的栈
+    // 创建给定容量的栈(根据提示添加该语句，为了解决强制转换类型不安全的警告)
 	@SuppressWarnings("unchecked")
 	public FixedCapacityStack(int capacity) {
     	a = (Item[]) new Object[capacity];   // Type Safety: Unchecked cast from Object[] to Item
