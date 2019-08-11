@@ -1,7 +1,13 @@
 package day02.readcode;
 /******************************************************************************
-
- *
+ * Bag的API：
+ * 
+ * public class Bag<Item> implements Iterable<Item>
+ * 				Bag()                    创建一个空背包
+ * 		void    add(Item item)           添加一个元素
+ * 	 boolean	isEmpty()                背包是否为空
+ *       int    size()                   背包中的元素数量
+ *  
  *  
  ******************************************************************************/
 
@@ -10,17 +16,17 @@ import java.util.NoSuchElementException;
 
 
 public class Bag<Item> implements Iterable<Item> {
-    private Node<Item> first;    // beginning of bag
-    private int n;               // number of elements in bag
+    private Node<Item> first;    // 首节点的指针
+    private int n;               // 元素个数
 
-    // helper linked list class
+    // 私有的单链表的节点（练习中采用双链表）java中采用的是双链表，虽然空间有些增加，但是更加方便。
     private static class Node<Item> {
         private Item item;
         private Node<Item> next;
     }
 
     /**
-     * Initializes an empty bag.
+     * 初始化，创建一个空背包
      */
     public Bag() {
         first = null;
