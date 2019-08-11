@@ -58,6 +58,11 @@ public class ResizingArrayBag<Item> implements Iterable<Item>{
 	}
 	
 	private class ReverseArrayIterator implements Iterator<Item>{
+		// 在这里类后面并没有泛型符号；而在后面有，泛型问题在哪里？
+		// 该符号使用在next方法返回的类型中
+		
+		// 逆序迭代
+		
 		private int i;
 		
 		public ReverseArrayIterator() {
@@ -71,6 +76,7 @@ public class ResizingArrayBag<Item> implements Iterable<Item>{
 
 		@Override
 		public Item next() {
+			// 返回类型是泛型Item
 			return a[i--];
 		}
 	}
