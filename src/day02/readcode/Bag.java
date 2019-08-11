@@ -18,10 +18,13 @@ import java.util.NoSuchElementException;
 public class Bag<Item> implements Iterable<Item> {
     private Node<Item> first;    // 首节点的指针
     private int n;               // 元素个数
-
+    
+    // 一个类后面带着泛型是什么意思？ Node<Item>
     // 私有的单链表的节点（练习中采用双链表）java中采用的是双链表，虽然空间有些增加，但是更加方便。
+    
     private static class Node<Item> {
-        private Item item;
+    	// 这里为什么使用的是静态私有类？
+        private Item item; // Item泛指存在Node节点中数据的类型，所有的Item都是指同一个东西吗？
         private Node<Item> next;
     }
 
