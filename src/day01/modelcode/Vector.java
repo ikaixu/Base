@@ -32,7 +32,7 @@ public class Vector<T> {
 		this(5);
 	}
 
-
+	
 	// 内部辅助函数
 	private void expand() {
 		if(size < t.length) {	return;} //空间足够无须扩容
@@ -56,8 +56,16 @@ public class Vector<T> {
 	public T get(int r) {return t[r];     } //是否需要判断r会不会越界，补充异常机制
 	public void put(int r, T e){ t[r]=e; }  //实现置换
 	public void insert(int r, T e){
-		// 插入， 在索引为r的地方插入元素e
-
+		// 插入，在索引为r的地方插入元素e，需要解决操作的复杂度问题
+		
 	}
-
+	public void remove(int r) {}
+	public void disordered() {}
+	public void sort() {}
+	public int find(T e) {return 0;}
+	public int search(T e) {return 0;}
+	public void dedupilicate() {}
+	public void uniquify() {}
+	private void tranverse() {}
+	
 }
