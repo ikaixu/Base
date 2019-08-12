@@ -54,6 +54,10 @@ public class Vector<T> {
 	// ADT接口实现
 	public int size()   { return	size; }
 	public T get(int r) {return t[r];     } //是否需要判断r会不会越界，补充异常机制
+	public void put(int r, T e){ t[r]=e; }  //实现置换
+	public void insert(int r, T e){
+		// 插入， 在索引为r的地方插入元素e
 
+	}
 
 }
