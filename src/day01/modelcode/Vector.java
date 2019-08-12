@@ -51,7 +51,7 @@ public class Vector<T> {
 	}
 	
 	
-	// 接口实现
+	// ADT接口实现
 	public int size()   { return	size; }
 	public T get(int r) {return t[r];     } //是否需要判断r会不会越界，补充异常机制
 	
