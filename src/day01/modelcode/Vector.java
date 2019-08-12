@@ -1,59 +1,59 @@
 package day01.modelcode;
 /*
-   *   ÏòÁ¿Êı¾İ½á¹¹ADT£º
- * 				size()   			ÔªËØ¸öÊı 
- * 				get(r)				»ñÈ¡ÖÈÎªrµÄÔªËØ
- * 				put(r,e)			ÓÃeÌæ»»ÖÈÎªrµÄÔªËØ
- * 				insert(r,e)			½«e²åÈëÖÈrµÄÎ»ÖÃ
- * 				remove(r)			É¾³ıÖÈÎªrµÄÔªËØ
- * 				disordered()		ÅĞ¶ÏÔªËØÊÇ·ñÒÑ¾­°´·Ç½µĞòÅÅĞò
- * 				sort()				µ÷Õû¸÷ÔªËØµÄÎ»ÖÃ£¬Ê¹Ö®·Ç½µĞòÅÅÁĞ
- * 				find(e)				²éÕÒµÈÓÚeÇÒÖÈ×î´óµÄÔªËØ
- * 				search(e)			²éÕÒe£¬·µ»Ø²»´óÓÚeÇÒÖÈ×î´óµÄÔªËØ
- * 				dedupilicate()		ÌŞ³ıÖØ¸´ÔªËØ
- * 				uniquify()			ÌŞ³ıÖØ¸´ÔªËØ
- * 				tranverse()			±éÀúÏòÁ¿²¢ÇÒÍ³Ò»´¦ÀíËùÓĞÔªËØ
- * 
+ *   å‘é‡æ•°æ®ç»“æ„ADTï¼š
+ * 				size()   			å…ƒç´ ä¸ªæ•°
+ * 				get(r)				è·å–ç§©ä¸ºrçš„å…ƒç´ 
+ * 				put(r,e)			ç”¨eæ›¿æ¢ç§©ä¸ºrçš„å…ƒç´ 
+ * 				insert(r,e)			å°†eæ’å…¥ç§©rçš„ä½ç½®
+ * 				remove(r)			åˆ é™¤ç§©ä¸ºrçš„å…ƒç´ 
+ * 				disordered()		åˆ¤æ–­å…ƒç´ æ˜¯å¦å·²ç»æŒ‰éé™åºæ’åº
+ * 				sort()				è°ƒæ•´å„å…ƒç´ çš„ä½ç½®ï¼Œä½¿ä¹‹éé™åºæ’åˆ—
+ * 				find(e)				æŸ¥æ‰¾ç­‰äºeä¸”ç§©æœ€å¤§çš„å…ƒç´ 
+ * 				search(e)			æŸ¥æ‰¾eï¼Œè¿”å›ä¸å¤§äºeä¸”ç§©æœ€å¤§çš„å…ƒç´ 
+ * 				dedupilicate()		å‰”é™¤é‡å¤å…ƒç´ 
+ * 				uniquify()			å‰”é™¤é‡å¤å…ƒç´ 
+ * 				tranverse()			éå†å‘é‡å¹¶ä¸”ç»Ÿä¸€å¤„ç†æ‰€æœ‰å…ƒç´ 
+ *
  * */
 
 public class Vector<T> {
-	// ´æ´¢ÏòÁ¿µÄÊı¾İ,Êı¾İµÄ¹æÄ£
+	// å­˜å‚¨å‘é‡çš„æ•°æ®,æ•°æ®çš„è§„æ¨¡
 	private T[] t;
 	private int size;
-	
-	// ¹¹Ôìº¯Êı
+
+	// æ„é€ å‡½æ•°
 	@SuppressWarnings("unchecked")
 	public Vector(int capacity) {
 		t = (T[]) new Object[capacity];
-		size = 0; //Ã»ÓĞÔªËØÊ±ºò½«ÖÈÉèÖÃÎª-1
+		size = 0; //æ²¡æœ‰å…ƒç´ æ—¶å€™å°†ç§©è®¾ç½®ä¸º-1
 	}
-	
+
 	public Vector() {
 		this(5);
 	}
-	
-	
-	// ÄÚ²¿¸¨Öúº¯Êı
+
+
+	// å†…éƒ¨è¾…åŠ©å‡½æ•°
 	private void expand() {
-		if(size < t.length) {	return;} //¿Õ¼ä×ã¹»ÎŞĞëÀ©Èİ
+		if(size < t.length) {	return;} //ç©ºé—´è¶³å¤Ÿæ— é¡»æ‰©å®¹
 		@SuppressWarnings("unchecked")
 		T[] temp = (T[])new Object[2*t.length];
 		for(int i=0; i< size; i++) {	temp[i] = t[i];}
-		t = temp;	
+		t = temp;
 	}
-	
+
 	private void shrink() {
-		if(size > t.length/4+1) {	return;} //×°ÌîÒò×Ó×ã¹»£¬25%
+		if(size > t.length/4+1) {	return;} //è£…å¡«å› å­è¶³å¤Ÿï¼Œ25%
 		@SuppressWarnings("unchecked")
-		T[] temp = (T[])new Object[t.length/2+1]; // ËõĞ¡Ò»°ë
-		for(int i=0; i < size; i++) {	temp[i] = t[i];} 
-		t = temp;	
+		T[] temp = (T[])new Object[t.length/2+1]; // ç¼©å°ä¸€åŠ
+		for(int i=0; i < size; i++) {	temp[i] = t[i];}
+		t = temp;
 	}
-	
-	
-	// ADT½Ó¿ÚÊµÏÖ
+
+
+	// ADTæ¥å£å®ç°
 	public int size()   { return	size; }
-	public T get(int r) {return t[r];     } //ÊÇ·ñĞèÒªÅĞ¶Ïr»á²»»áÔ½½ç£¬²¹³äÒì³£»úÖÆ
-	
-	
+	public T get(int r) {return t[r];     } //æ˜¯å¦éœ€è¦åˆ¤æ–­rä¼šä¸ä¼šè¶Šç•Œï¼Œè¡¥å……å¼‚å¸¸æœºåˆ¶
+
+
 }
