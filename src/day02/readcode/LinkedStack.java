@@ -45,11 +45,7 @@ public class LinkedStack<Item> implements Iterable<Item> {
         assert check();//断言语句
     }
 
-    /**
-     * Removes and returns the item most recently added to this stack.
-     * @return the item most recently added
-     * @throws java.util.NoSuchElementException if this stack is empty
-     */
+    // 删除且返回
     public Item pop() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
         Item item = first.item;        // save item to return
