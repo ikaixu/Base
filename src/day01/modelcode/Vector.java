@@ -35,7 +35,7 @@ public class Vector<T> {
 	
 	// 内部辅助函数
 	private void expand() {
-		if(size < t.length) {	return;} //空间足够无须扩容
+		if(size < t.length) {	return;} //空间足够无须扩容，没有之前看的策略好
 		@SuppressWarnings("unchecked")
 		T[] temp = (T[])new Object[2*t.length];
 		for(int i=0; i< size; i++) {	temp[i] = t[i];}
@@ -66,6 +66,5 @@ public class Vector<T> {
 	public int search(T e) {return 0;}
 	public void dedupilicate() {}
 	public void uniquify() {}
-	private void tranverse() {}
-	
+	public void tranverse() {}	
 }
