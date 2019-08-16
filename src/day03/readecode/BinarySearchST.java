@@ -1,5 +1,5 @@
 package day03.readecode;
-
+// 数组实现，双数组实现二分查找符号表
 import java.util.NoSuchElementException;
 
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
@@ -331,10 +331,6 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         return queue; 
     }
 
-
-   /***************************************************************************
-    *  Check internal invariants.
-    ***************************************************************************/
 
     private boolean check() {
         return isSorted() && rankCheck();
