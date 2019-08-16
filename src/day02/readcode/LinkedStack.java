@@ -14,6 +14,7 @@ public class LinkedStack<Item> implements Iterable<Item> {
 
     // 私有的非静态嵌套类被称为内部类，需要修改一些东西
     // 使用了泛型参数
+    // 更像是一个struct，并不是一个类。存储数据使用的
     private class Node {
         private Item item;
         private Node next;
