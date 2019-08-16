@@ -12,48 +12,36 @@ public class LinkedStack<Item> implements Iterable<Item> {
     private int n;          // size of the stack
     private Node first;     // top of stack
 
-    // 私有的非静态嵌套类被称为内部类
+    // 私有的非静态嵌套类被称为内部类，需要修改一些东西
+    // 使用了泛型参数
     private class Node {
         private Item item;
         private Node next;
     }
 
-    /**
-     * Initializes an empty stack.
-     */
+    // 初始化
     public LinkedStack() {
         first = null;
         n = 0;
         assert check();
     }
 
-    /**
-     * Is this stack empty?
-     * @return true if this stack is empty; false otherwise
-     */
     public boolean isEmpty() {
         return first == null;
     }
 
-    /**
-     * Returns the number of items in the stack.
-     * @return the number of items in the stack
-     */
     public int size() {
         return n;
     }
 
-    /**
-     * Adds the item to this stack.
-     * @param item the item to add
-     */
+
     public void push(Item item) {
         Node oldfirst = first;
         first = new Node();
         first.item = item;
         first.next = oldfirst;
         n++;
-        assert check();
+        assert check();//断言语句
     }
 
     /**
@@ -115,7 +103,7 @@ public class LinkedStack<Item> implements Iterable<Item> {
     }
 
 
-    // check internal invariants
+    // check一些性质，检查
     private boolean check() {
 
         // check a few properties of instance variable 'first'
@@ -134,7 +122,6 @@ public class LinkedStack<Item> implements Iterable<Item> {
             if (first.next == null) return false;
         }
 
-        // check internal consistency of instance variable n
         int numberOfNodes = 0;
         for (Node x = first; x != null && numberOfNodes <= n; x = x.next) {
             numberOfNodes++;

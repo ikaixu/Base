@@ -12,6 +12,7 @@ public class LinkedStackOfStrings {
     private Node first;     // top of stack
 
     // 直接加了static将Node类变成了静态的，这个类是嵌套类（内部类是嵌套类的一种？？）
+    // 为什么变成静态的？应该还是为了加载方便
     private static class Node {
         private String item;
         private Node next;
@@ -22,14 +23,14 @@ public class LinkedStackOfStrings {
         first = null;
     }
 
-    // is the stack empty?
+    // 判断是否为空
     public boolean isEmpty() { return first == null; }
 
     // number of elements on the stack
     public int size() { return N; }
 
 
-    // add an element to the stack
+    // 加入数据
     public void push(String item) {
         Node oldfirst = first;
         first = new Node();
@@ -38,7 +39,7 @@ public class LinkedStackOfStrings {
         N++;
     }
 
-    // delete and return the most recently added element
+    // 删除并且返回首元素
     public String pop() {
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
         String item = first.item;      // save item to return

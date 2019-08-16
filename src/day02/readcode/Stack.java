@@ -13,7 +13,7 @@ public class Stack<Item> implements Iterable<Item> {
     private Node<Item> first;     // top of stack
     private int n;                // size of the stack
 
-    // 这里的改造才是正取将Node类变成静态的关键
+    // 这里的改造才是正取将Node类变成静态的关键，相同的泛型参数
     private static class Node<Item> {
         private Item item;
         private Node<Item> next;
