@@ -3,14 +3,12 @@ package day03.readecode;
 import java.util.NoSuchElementException;
 
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
-    private static final int INIT_CAPACITY = 2;
+    private static final int INIT_CAPACITY = 2;//这是什么技巧？
     private Key[] keys;
     private Value[] vals;
     private int n = 0;
 
-    /**
-     * Initializes an empty symbol table.
-     */
+
     public BinarySearchST() {
         this(INIT_CAPACITY);
     }
