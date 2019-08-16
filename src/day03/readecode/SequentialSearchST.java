@@ -1,36 +1,11 @@
 package day03.readecode;
-
-/******************************************************************************
- *  Compilation:  javac SequentialSearchST.java
- *  Execution:    java SequentialSearchST
- *  Dependencies: StdIn.java StdOut.java
- *  Data files:   https://algs4.cs.princeton.edu/31elementary/tinyST.txt  
- *  
- *  Symbol table implementation with sequential search in an
- *  unordered linked list of key-value pairs.
- *
- *  % more tinyST.txt
- *  S E A R C H E X A M P L E
- *
- *  % java SequentialSearchST < tiny.txt 
- *  L 11
- *  P 10
- *  M 9
- *  X 7
- *  H 5
- *  C 4
- *  R 3
- *  A 8
- *  E 12
- *  S 0
- *
- ******************************************************************************/
-
+// 符号表设计，顺序查询表
+// 使用链表实现
 public class SequentialSearchST<Key, Value> {
     private int n;           // number of key-value pairs
     private Node first;      // the linked list of key-value pairs
 
-    // a helper linked list data type
+    // 私有类，符号表
     private class Node {
         private Key key;
         private Value val;

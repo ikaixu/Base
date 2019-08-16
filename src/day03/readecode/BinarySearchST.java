@@ -1,32 +1,6 @@
 package day03.readecode;
 
-/******************************************************************************
- *  Compilation:  javac BinarySearchST.java
- *  Execution:    java BinarySearchST
- *  Dependencies: StdIn.java StdOut.java
- *  Data files:   https://algs4.cs.princeton.edu/31elementary/tinyST.txt  
- *  
- *  Symbol table implementation with binary search in an ordered array.
- *
- *  % more tinyST.txt
- *  S E A R C H E X A M P L E
- *  
- *  % java BinarySearchST < tinyST.txt
- *  A 8
- *  C 4
- *  E 12
- *  H 5
- *  L 11
- *  M 9
- *  P 10
- *  R 3
- *  S 0
- *  X 7
- *
- ******************************************************************************/
-
 import java.util.NoSuchElementException;
-
 
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
     private static final int INIT_CAPACITY = 2;
