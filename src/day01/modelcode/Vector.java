@@ -57,7 +57,8 @@ public class Vector<T> {
 	public void put(int r, T e){ t[r]=e; }  //实现置换
 	public void insert(int r, T e){
 		// 插入，在索引为r的地方插入元素e，需要解决操作的复杂度问题
-		
+	expand();
+	shrink();
 	}
 	public void remove(int r) {}
 	public void disordered() {}
