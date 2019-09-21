@@ -3,14 +3,15 @@ package day03.readecode;
 import java.util.NoSuchElementException;
 
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
-    private static final int INIT_CAPACITY = 2;//这是什么技巧？
-    private Key[] keys;
-    private Value[] vals;
-    private int n = 0;
+    private static final int INIT_CAPACITY = 2;//static只能产生一个对象，final则不能改变指针指向。
+    //设置了一个不变变量
+    private Key[] keys;//键数组
+    private Value[] vals;//值数组
+    private int n = 0;//记录键值位置的指针
 
 
     public BinarySearchST() {
-        this(INIT_CAPACITY);
+        this(INIT_CAPACITY);//初始化算法
     }
 
     /**
@@ -38,8 +39,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     * Returns the number of key-value pairs in this symbol table.
-     *
+     * Returns the number of key-value pairs in this symbol table. 返回二分查找表规模。
      * @return the number of key-value pairs in this symbol table
      */
     public int size() {
